@@ -12,28 +12,36 @@ const START_PAGE = '<div class="leaf flex"><div class="inner justify">',
     END_PAGE = '</div> </div>';
 
 
-fs.readFile('sanitized.html', 'utf8', function(err, data) {
-    if (err) {
-        console.log(err);
-    }
-    paginateHTML(data);
-});
-
-
-// url = "http://www.gutenberg.org/files/500/500-h/500-h.htm"; // The book
-
-// request(url, function(error, response, book) {
-//     if (!error) {
-//         var $ = cheerio.load(book);
-//         saveOriginalBook($.html());
-//         sanitizeOriginalBook($);
-
-//     } else {
-//         console.log("We’ve encountered an error: " + error);
+// fs.readFile('sanitized.html', 'utf8', function(err, data) {
+//     if (err) {
+//         console.log(err);
 //     }
-
+//     paginateHTML(data);
 // });
 
+
+url = "http://www.gutenberg.org/files/16865/16865-h/16865-h.htm"; // The book
+
+if (!fs.existsSync('original.html')) {
+    request(url, function(error, response, book) {
+        if (!error) {
+            var $ = cheerio.load(book);
+            saveOriginalBook($.html());
+            sanitizeOriginalBook($);
+
+        } else {
+            console.log("We’ve encountered an error: " + error);
+        }
+
+    });
+} else {
+    var originalBook = fs.readFileSync("original.html");
+
+
+
+    var $ = cheerio.load(originalBook);
+    sanitizeOriginalBook($);
+}
 
 function saveOriginalBook(html) {
     var originalBook = fs.openSync("original.html", 'w');
@@ -46,12 +54,16 @@ function sanitizeOriginalBook($) {
     var cleanHTML = sanitizeHtml($.html(), {
         allowedTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'em', 'strong', 'i', 'b', 'pre', 'title'],
         allowedAttributes: {
-            img: ['src']
+            img: ['src'],
+            '*': ['class']
         },
         nonTextTags: ['style', 'script', 'textarea', 'noscript', 'a'],
         exclusiveFilter: function(tag) {
             return !tag.text.trim();
         },
+        // transformTags: {
+        //     'pre': sanitizeHtml.simpleTransform('p', { class: 'bottom' })
+        // }
         transformTags: {
             'pre': function(tagName, attribs) {
                 // My own custom magic goes here 
