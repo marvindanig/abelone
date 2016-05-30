@@ -20,14 +20,14 @@ const START_PAGE = '<div class="leaf flex"><div class="inner justify">',
 // });
 
 
-url = "http://www.gutenberg.org/files/16865/16865-h/16865-h.htm"; // The book
+url = "http://www.gutenberg.org/files/500/500-h/500-h.htm"; // The book
 
 if (!fs.existsSync('original.html')) {
     request(url, function(error, response, book) {
         if (!error) {
-            var $ = cheerio.load(book);
-            saveOriginalBook($.html());
-            sanitizeOriginalBook($);
+            //var $ = cheerio.load(book);
+            saveOriginalBook(book);
+            sanitizeOriginalBook(book);
 
         } else {
             console.log("We’ve encountered an error: " + error);
@@ -36,11 +36,8 @@ if (!fs.existsSync('original.html')) {
     });
 } else {
     var originalBook = fs.readFileSync("original.html");
-
-
-
-    var $ = cheerio.load(originalBook);
-    sanitizeOriginalBook($);
+    //var $ = cheerio.load(originalBook);
+    sanitizeOriginalBook(originalBook);
 }
 
 function saveOriginalBook(html) {
@@ -49,9 +46,9 @@ function saveOriginalBook(html) {
     fs.close(originalBook);
 }
 
-function sanitizeOriginalBook($) {
+function sanitizeOriginalBook(originalHTML) {
 
-    var cleanHTML = sanitizeHtml($.html(), {
+    var cleanHTML = sanitizeHtml(originalHTML, {
         allowedTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'em', 'strong', 'i', 'b', 'pre', 'title'],
         allowedAttributes: {
             img: ['src'],
