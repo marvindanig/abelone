@@ -80,6 +80,8 @@ function sanitizeOriginalBook(originalHTML) {
 function paginateHTML(fullBook) {
     var wordcount = require('wordcount');
 
+    var headerTags = ['h1', 'h2', 'h3'];
+
     var $ = cheerio.load(fullBook);
 
     var title = $('title').text(); // TODO: Insert title into HEAD template.
@@ -97,24 +99,36 @@ function paginateHTML(fullBook) {
 
         var elem_word_count = wordcount($(this).text());
 
-        if (word_count + elem_word_count > WORD_LIMIT) {
-            var dir = path.join(path.join("manuscript", "page-" + page_count));
 
-            if (!fs.existsSync(dir)) {
-                fs.mkdirSync(dir);
-            }
 
-            var page = fs.openSync(path.join("manuscript", "page-" + page_count, "body.html"), 'w+');
-            page_html = START_PAGE + page_html + END_PAGE;
+        if (word_count + elem_word_count > WORD_LIMIT || headerTags.indexOf($(this)[0].name) > -1) {
+            
+            createPage(page_count, page_html);
 
-            fs.writeSync(page, page_html, 0, page_html.length);
-
+            page_count += 1;
             page_html = $(this);
             word_count = elem_word_count;
-            page_count += 1;
+
+            if (headerTags.indexOf($(this)[0].name) > -1) {
+               word_count += WORD_LIMIT;
+            }
         } else {
             page_html = page_html + $(this);
             word_count = word_count + elem_word_count + 10;
         }
     });
+}
+
+function createPage(page_count, page_html) {
+    var dir = path.join(path.join("manuscript", "page-" + page_count));
+
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
+
+    var page = fs.openSync(path.join("manuscript", "page-" + page_count, "body.html"), 'w+');
+    page_html = START_PAGE + page_html + END_PAGE;
+
+    fs.writeSync(page, page_html, 0, page_html.length);
+
 }
