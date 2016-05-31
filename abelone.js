@@ -11,15 +11,6 @@ const LINE_LIMIT = 16;
 const START_PAGE = '<div class="leaf flex"><div class="inner justify">',
     END_PAGE = '</div> </div>';
 
-
-// fs.readFile('sanitized.html', 'utf8', function(err, data) {
-//     if (err) {
-//         console.log(err);
-//     }
-//     paginateHTML(data);
-// });
-
-
 url = "http://www.gutenberg.org/files/500/500-h/500-h.htm"; // The book
 
 if (!fs.existsSync('original.html')) {
@@ -125,10 +116,5 @@ function paginateHTML(fullBook) {
             page_html = page_html + $(this);
             word_count = word_count + elem_word_count + 10;
         }
-
-
     });
-
-
-
 }
