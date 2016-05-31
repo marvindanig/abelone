@@ -1,6 +1,6 @@
 {
   "name": "abelone",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Fetch HTML page, turn it into a bookiza app",
   "main": "parmesan.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/bookiza/abelone.git"
-  },  
+  },
   "keywords": [
     "bookiza",
     "anti-scroll",
@@ -21,7 +21,7 @@
     "url": "https://github.com/bookiza/bookiza/issues"
   },
   "homepage": "https://gitlab.com/bookiza/abelone",
-  "READme": "https://gitlab.com/bookiza/abelone/blob/master/README.md",  
+  "READme": "https://gitlab.com/bookiza/abelone/blob/master/README.md",
   "author": "Marvin Danig <marvin@bubbl.in> (https://bubbl.in/marvin)",
   "license": "MIT",
   "dependencies": {
