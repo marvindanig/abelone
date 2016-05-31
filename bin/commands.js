@@ -63,14 +63,15 @@ program
   .command('paginate')
   .alias('p')
   .description('Paginate & templatize')
-  .action(function(options) {
-    page.paginate(options);
+  .action(function() {
+    var page = require(path.join('..', 'lib', 'paginate.js'));
+    page.paginate();
   }).on('--help', function() {
     console.log('  Examples:');
     console.log();
     console.log('    $ abelone paginate ');
     console.log('    $ abelone p ');
-    console.log(chalk.bold.bgGreen('    $ a p'));
+    console.log(chalk.bold('    $ a p   #shortform'));
     console.log();
   });
 
