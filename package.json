@@ -1,12 +1,12 @@
 {
   "name": "abelone",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Fetch HTML page, turn it into a bookiza app",
   "main": "parmesan.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [ 'bookiza', 'anti-scroll', 'superbooks', 'page-cutter', 'sanitizer'],
+  "keywords": [ "bookiza", "anti-scroll", "superbooks", "page-cutter", "sanitizer"],
   "author": "Marvin Danig <marvin@bubbl.in> (https://bubbl.in/marvin)",
   "license": "MIT",
   "dependencies": {
