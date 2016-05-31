@@ -1,6 +1,6 @@
 {
   "name": "abelone",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Fetch a page, sanistize and paginate for bookiza",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
