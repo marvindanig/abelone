@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/bookiza/abelone.git"
+  },  
   "keywords": [
     "bookiza",
     "anti-scroll",
@@ -13,6 +17,11 @@
     "page-cutter",
     "sanitizer"
   ],
+  "bugs": {
+    "url": "https://github.com/bookiza/bookiza/issues"
+  },
+  "homepage": "https://gitlab.com/bookiza/abelone",
+  "READme": "https://gitlab.com/bookiza/abelone/blob/master/README.md",  
   "author": "Marvin Danig <marvin@bubbl.in> (https://bubbl.in/marvin)",
   "license": "MIT",
   "dependencies": {
