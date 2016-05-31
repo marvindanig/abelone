@@ -1,6 +1,6 @@
 {
   "name": "abelone",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Fetch HTML page, turn it into a bookiza app",
   "main": "parmesan.js",
   "scripts": {
