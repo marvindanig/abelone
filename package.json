@@ -1,7 +1,7 @@
 {
   "name": "abelone",
   "version": "0.0.4",
-  "description": "Fetch HTML page, turn it into a bookiza app",
+  "description": "Fetch a page, sanistize and paginate for bookiza",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -9,6 +9,10 @@
     "abelone": "./bin/commands.js",
     "a": "./bin/commands.js"
   },
+  "preferGlobal": true,
+  "engines": {
+    "node": "5.1.0"
+  },  
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/bookiza/abelone.git"
@@ -28,14 +32,14 @@
   "author": "Marvin Danig <marvin@bubbl.in> (https://bubbl.in/marvin)",
   "license": "MIT",
   "dependencies": {
+    "chalk": "1.1.3",
     "cheerio": "0.20.0",
     "clean-html": "1.3.6",
+    "co": "4.6.0",
+    "co-prompt": "1.0.0",
     "commander": "2.9.0",
     "request": "2.69.0",
     "sanitize-html": "1.11.4",
-    "wordcount": "1.1.1",
-    "chalk": "1.1.3",
-    "co": "4.6.0",
-    "co-prompt": "1.0.0"
+    "wordcount": "1.1.1"
   }
 }

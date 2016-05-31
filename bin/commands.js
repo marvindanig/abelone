@@ -15,16 +15,16 @@ program
   .command('fetch <url>')
   .alias('f')
   .description('Fetches a longscroll webpage')
-  .action(function(url) {
-    var fetchPage = require(path.join('..', 'lib', 'fetchPage.js'));
-    console.log(fetchPage(url));
-
+  .option("-f, --force", "Force a fetch")
+  .action(function(url, options) {
+    var original = require(path.join('..', 'lib', 'fetch.js'));
+    original.fetch(url, options);
   }).on('--help', function() {
     console.log('  Examples:');
     console.log();
-    console.log('    $ abelone transform https://full_url_here.html');
-    console.log('    $ abelone t https://full_url_here.html');
-    console.log(chalk.bold.bgGreen('    $ a t https://full_url_here.html'));
+    console.log('    $ abelone fetch http(s)://full_url_here.html');
+    console.log('    $ abelone f http://full_url_here.html');
+    console.log(chalk.bold('    $ a f https://full_url_here.html    # shortform'));
     console.log();
   });
 
@@ -33,8 +33,8 @@ program
   .alias('s')
   .description('Sanitizes HTML')
   .action(function(options) {
-    abelone.santize(options);
-    // do whatever
+    var html = require(path.join('..', 'lib', 'sanitize.js'));
+    html.sanitize(options);
   }).on('--help', function() {
     console.log('  Examples:');
     console.log();
@@ -48,8 +48,7 @@ program
   .command('normalize')
   .alias('n')
   .description('Normalizes HTML')
-  .action(function(url) {
-    abelone.normalize(url);
+  .action(function() {
     // do whatever
   }).on('--help', function() {
     console.log('  Examples:');
@@ -65,8 +64,7 @@ program
   .alias('p')
   .description('Paginate & templatize')
   .action(function(options) {
-    abelone.paginate(options);
-    // do whatever
+    page.paginate(options);
   }).on('--help', function() {
     console.log('  Examples:');
     console.log();
