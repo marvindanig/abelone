@@ -1,34 +1,41 @@
 {
-  "name": "abelone",
-  "version": "0.0.3",
-  "description": "Fetch HTML page, turn it into a bookiza app",
-  "main": "parmesan.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.com/bookiza/abelone.git"
-  },
-  "keywords": [
-    "bookiza",
-    "anti-scroll",
-    "superbooks",
-    "page-cutter",
-    "sanitizer"
-  ],
-  "bugs": {
-    "url": "https://gitlab.com/bookiza/abelone/issues"
-  },
-  "homepage": "https://gitlab.com/bookiza/abelone",
-  "READme": "https://gitlab.com/bookiza/abelone/blob/master/README.md",
-  "author": "Marvin Danig <marvin@bubbl.in> (https://bubbl.in/marvin)",
-  "license": "MIT",
-  "dependencies": {
-    "cheerio": "0.20.0",
-    "clean-html": "1.3.6",
-    "request": "2.69.0",
-    "sanitize-html": "1.11.4",
-    "wordcount": "1.1.1"
-  }
+    "name": "abelone",
+    "version": "0.0.3",
+    "description": "Fetch HTML page, turn it into a bookiza app",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "abelone": "./bin/commands.js",
+        "a": "./bin/commands.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.com/bookiza/abelone.git"
+    },
+    "keywords": [
+        "bookiza",
+        "anti-scroll",
+        "superbooks",
+        "page-cutter",
+        "sanitizer"
+    ],
+    "bugs": {
+        "url": "https://gitlab.com/bookiza/abelone/issues"
+    },
+    "homepage": "https://gitlab.com/bookiza/abelone",
+    "READme": "https://gitlab.com/bookiza/abelone/blob/master/README.md",
+    "author": "Marvin Danig <marvin@bubbl.in> (https://bubbl.in/marvin)",
+    "license": "MIT",
+    "dependencies": {
+        "cheerio": "0.20.0",
+        "clean-html": "1.3.6",
+        "commander": "2.9.0",
+        "request": "2.69.0",
+        "sanitize-html": "1.11.4",
+        "wordcount": "1.1.1",
+        "chalk": "1.1.3",
+        "co": "4.6.0",
+        "co-prompt": "1.0.0"        
+    }
 }
