@@ -49,7 +49,8 @@ program
   .alias('n')
   .description('Normalizes HTML')
   .action(function() {
-    // do whatever
+    var page = require(path.join('..', 'lib', 'normalize.js'));
+    page.normalize();
   }).on('--help', function() {
     console.log('  Examples:');
     console.log();
