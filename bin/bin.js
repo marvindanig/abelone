@@ -22,8 +22,8 @@ program
   }).on('--help', function() {
     console.log('  Examples:');
     console.log();
-    console.log('    $ abelone fetch http(s)://full_url_here.html');
-    console.log('    $ abelone f http://full_url_here.html');
+    console.log('    $ abelone fetch http(s)://url.html');
+    console.log('    $ abelone f http://url.html');
     console.log(chalk.bold('    $ a f https://full_url_here.html    # shortform'));
     console.log();
   });

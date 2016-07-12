@@ -6,8 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "abelone": "./bin/commands.js",
-    "a": "./bin/commands.js"
+    "abelone": "./bin/bin.js",
+    "a": "./bin/bin.js"
   },
   "preferGlobal": true,
   "engines": {
