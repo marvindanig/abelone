@@ -10,7 +10,6 @@ var path = require('path');
 
 var packageJson = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json')).toString());
 
-
 program
   .command('fetch <url>')
   .alias('f')
@@ -61,22 +60,6 @@ program
   });
 
 program
-  .command('paginate')
-  .alias('p')
-  .description('Paginate & templatize')
-  .action(function() {
-    var page = require(path.join('..', 'lib', 'paginate.js'));
-    page.paginate();
-  }).on('--help', function() {
-    console.log('  Examples:');
-    console.log();
-    console.log('    $ abelone paginate ');
-    console.log('    $ abelone p ');
-    console.log(chalk.bold('    $ a p   #shortform'));
-    console.log();
-  });
-
-program
   .command('homogenize')
   .alias('h')
   .description('Paginate & templatize')
@@ -89,6 +72,22 @@ program
     console.log('    $ abelone homogenize ');
     console.log('    $ abelone h ');
     console.log(chalk.bold('    $ a h   #shortform'));
+    console.log();
+  });
+
+program
+  .command('paginate')
+  .alias('p')
+  .description('Paginate & templatize')
+  .action(function() {
+    var page = require(path.join('..', 'lib', 'paginate.js'));
+    page.paginate();
+  }).on('--help', function() {
+    console.log('  Examples:');
+    console.log();
+    console.log('    $ abelone paginate ');
+    console.log('    $ abelone p ');
+    console.log(chalk.bold('    $ a p   #shortform'));
     console.log();
   });
 
