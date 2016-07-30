@@ -60,6 +60,24 @@ program
   });
 
 program
+  .command('assetize')
+  .alias('a')
+  .description('Assets: images -> ROOT/assets/images/')
+  .action(function() {
+    var page = require(path.join('..', 'lib', 'assetize.js'));
+    page.assetize();
+  }).on('--help', function() {
+    console.log('  Examples:');
+    console.log();
+    console.log('    $ abelone homogenize ');
+    console.log('    $ abelone h ');
+    console.log(chalk.bold('    $ a h   #shortform'));
+    console.log();
+  });
+
+
+
+program
   .command('homogenize')
   .alias('h')
   .description('Paginate & templatize')

@@ -38,8 +38,9 @@
     "co": "4.6.0",
     "co-prompt": "1.0.0",
     "commander": "2.9.0",
-    "request": "2.69.0",
-    "sanitize-html": "1.11.4",
+    "fs-promise": "0.5.0",
+    "request": "2.74.0",
+    "sanitize-html": "1.13.0",
     "wordcount": "1.1.1"
   }
 }
