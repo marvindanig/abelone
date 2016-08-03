@@ -39,8 +39,10 @@
     "co-prompt": "1.0.0",
     "commander": "2.9.0",
     "fs-promise": "0.5.0",
+    "glob": "7.0.5",
     "request": "2.74.0",
     "sanitize-html": "1.13.0",
+    "unzip": "0.1.11",
     "wordcount": "1.1.1"
   }
 }

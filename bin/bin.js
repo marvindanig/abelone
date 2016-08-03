@@ -27,6 +27,23 @@ program
     console.log();
   });
 
+
+program
+  .command('assetize')
+  .alias('a')
+  .description('Fill in assets / html')
+  .action(function() {
+    var page = require(path.join('..', 'lib', 'assetize.js'));
+    page.assetize();
+  }).on('--help', function() {
+    console.log('  Examples:');
+    console.log();
+    console.log('    $ abelone assetize ');
+    console.log('    $ abelone a ');
+    console.log(chalk.bold('    $ a a   #shortform'));
+    console.log();
+  });
+
 program
   .command('sanitize')
   .alias('s')
@@ -58,23 +75,6 @@ program
     console.log(chalk.bold.bgGreen('    $ a n'));
     console.log();
   });
-
-program
-  .command('assetize')
-  .alias('a')
-  .description('Assets: images -> ROOT/assets/images/')
-  .action(function() {
-    var page = require(path.join('..', 'lib', 'assetize.js'));
-    page.assetize();
-  }).on('--help', function() {
-    console.log('  Examples:');
-    console.log();
-    console.log('    $ abelone homogenize ');
-    console.log('    $ abelone h ');
-    console.log(chalk.bold('    $ a h   #shortform'));
-    console.log();
-  });
-
 
 
 program
