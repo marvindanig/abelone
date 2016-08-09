@@ -76,11 +76,27 @@ program
     console.log();
   });
 
+program
+  .command('objectify')
+  .alias('o')
+  .description('Objectify into a Array-like Json')
+  .action(function() {
+    var page = require(path.join('..', 'lib', 'objectify.js'));
+    page.objectify();
+  }).on('--help', function() {
+    console.log('  Examples:');
+    console.log();
+    console.log('    $ abelone objectify ');
+    console.log('    $ abelone o ');
+    console.log(chalk.bold('    $ a o   #shortform'));
+    console.log();
+  });
+
 
 program
   .command('homogenize')
   .alias('h')
-  .description('Paginate & templatize')
+  .description('homogenize paragraphs')
   .action(function() {
     var page = require(path.join('..', 'lib', 'homogenize.js'));
     page.homogenize();
@@ -90,6 +106,22 @@ program
     console.log('    $ abelone homogenize ');
     console.log('    $ abelone h ');
     console.log(chalk.bold('    $ a h   #shortform'));
+    console.log();
+  });
+
+program
+  .command('bookify')
+  .alias('b')
+  .description('Bookify into a book Json')
+  .action(function() {
+    var page = require(path.join('..', 'lib', 'bookify.js'));
+    page.bookify();
+  }).on('--help', function() {
+    console.log('  Examples:');
+    console.log();
+    console.log('    $ abelone bookify ');
+    console.log('    $ abelone b ');
+    console.log(chalk.bold('    $ a b   #shortform'));
     console.log();
   });
 
