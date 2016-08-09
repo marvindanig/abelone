@@ -1,6 +1,6 @@
 {
   "name": "abelone",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Fetch, sanitize, normalize and paginate HTML into turnable bookiza apps",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
