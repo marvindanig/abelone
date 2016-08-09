@@ -93,21 +93,21 @@ program
   });
 
 
-program
-  .command('homogenize')
-  .alias('h')
-  .description('homogenize paragraphs')
-  .action(function() {
-    var page = require(path.join('..', 'lib', 'homogenize.js'));
-    page.homogenize();
-  }).on('--help', function() {
-    console.log('  Examples:');
-    console.log();
-    console.log('    $ abelone homogenize ');
-    console.log('    $ abelone h ');
-    console.log(chalk.bold('    $ a h   #shortform'));
-    console.log();
-  });
+// program
+//   .command('homogenize')
+//   .alias('h')
+//   .description('homogenize paragraphs')
+//   .action(function() {
+//     var page = require(path.join('..', 'lib', 'homogenize.js'));
+//     page.homogenize();
+//   }).on('--help', function() {
+//     console.log('  Examples:');
+//     console.log();
+//     console.log('    $ abelone homogenize ');
+//     console.log('    $ abelone h ');
+//     console.log(chalk.bold('    $ a h   #shortform'));
+//     console.log();
+//   });
 
 program
   .command('bookify')
